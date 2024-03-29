@@ -166,6 +166,50 @@ public class ArbolBinarioDeBusqueda {
         camino.del(camino.getNumeroElementos());  //Elimino del final
         return false;
     }
+    public ListadoblementeEnlazada<Integer> getListaPreOrden(){
+        ListadoblementeEnlazada<Integer> lpreO = new ListadoblementeEnlazada<>();
+        ListaPreOrden(raiz, lpreO);
+        return lpreO;
+    }
+
+    private void ListaPreOrden(Nodo nodo, ListadoblementeEnlazada<Integer> lista) {
+        if (nodo == null) {
+            return;
+        }
+        lista.add((Integer) nodo.getData());  //Añade el dato del nodo a la lista
+        ListaPreOrden(nodo.getIzquierda(), lista);
+        ListaPreOrden(nodo.getDerecha(), lista);
+    }
+
+    public ListadoblementeEnlazada<Integer> getListaPostOrden(){
+        ListadoblementeEnlazada<Integer> lpostO = new ListadoblementeEnlazada<>();
+        ListaPostOrden(raiz, lpostO);
+        return lpostO;
+    }
+
+    private void ListaPostOrden(Nodo nodo, ListadoblementeEnlazada<Integer> lista) {
+        if (nodo == null) {
+            return;
+        }
+        ListaPostOrden(nodo.getIzquierda(), lista);
+        ListaPostOrden(nodo.getDerecha(), lista);
+        lista.add((Integer) nodo.getData());  //Añade el dato del nodo a la lista
+    }
+
+    public ListadoblementeEnlazada<Integer> getListaOrdenCentral(){
+        ListadoblementeEnlazada<Integer> lOcent = new ListadoblementeEnlazada<>();
+        ListaOrdenCentral(raiz, lOcent);
+        return lOcent;
+    }
+
+    private void ListaOrdenCentral(Nodo nodo, ListadoblementeEnlazada<Integer> lista) {
+        if (nodo == null) {
+            return;
+        }
+        ListaOrdenCentral(nodo.getIzquierda(), lista);
+        lista.add((Integer) nodo.getData());  //Añade el dato del nodo a la lista
+        ListaOrdenCentral(nodo.getDerecha(), lista);
+    }
 
 
 

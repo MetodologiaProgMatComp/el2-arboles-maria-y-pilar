@@ -40,6 +40,24 @@ public class Main {
         for (int i = 0; i < camino.getNumeroElementos(); i++) {
             System.out.println(camino.getElemento(i));
         }
+
+        ListadoblementeEnlazada<Integer> listapreorden = arbol.getListaPreOrden();
+        System.out.println("Arbol ordenado en preorden:");
+        for (int i = 0; i < listapreorden.getNumeroElementos(); i++) {
+            System.out.println(listapreorden.getElemento(i));
+        }
+
+        ListadoblementeEnlazada<Integer> listapostorden = arbol.getListaPostOrden();
+        System.out.println("Arbol ordenado en postorden:");
+        for (int i = 0; i < listapostorden.getNumeroElementos(); i++) {
+            System.out.println(listapostorden.getElemento(i));
+        }
+
+        ListadoblementeEnlazada<Integer> listaordencentral = arbol.getListaOrdenCentral();
+        System.out.println("Arbol ordenado en orden central:");
+        for (int i = 0; i < listaordencentral.getNumeroElementos(); i++) {
+            System.out.println(listaordencentral.getElemento(i));
+        }
     }
     
     private static void imprimirInOrden (Nodo nodo) {
