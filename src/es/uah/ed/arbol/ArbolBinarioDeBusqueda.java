@@ -3,7 +3,7 @@ package es.uah.ed.arbol;
 import es.uah.listas.ListadoblementeEnlazada;
 
 public class ArbolBinarioDeBusqueda {
-    private Nodo raiz=null;
+    Nodo raiz=null;
 
     public ArbolBinarioDeBusqueda() {
     }
@@ -39,16 +39,16 @@ public class ArbolBinarioDeBusqueda {
             addrecursivo(raiz, data);
         }
     }
-    public ArbolBinarioDeBusqueda getSubArbolIzquierda() {
-        ArbolBinarioDeBusqueda subArbol = new ArbolBinarioDeBusqueda();
+    public ArbolBinarioDeBusquedaEnteros getSubArbolIzquierda() {
+        ArbolBinarioDeBusquedaEnteros subArbol = new ArbolBinarioDeBusquedaEnteros();
         if (raiz != null && raiz.getIzquierda() != null) {
             subArbol.raiz = raiz.getIzquierda();
         }
         return subArbol;
     }
 
-    public ArbolBinarioDeBusqueda getSubArbolDerecha() {
-        ArbolBinarioDeBusqueda subArbol = new ArbolBinarioDeBusqueda();
+    public ArbolBinarioDeBusquedaEnteros getSubArbolDerecha() {
+        ArbolBinarioDeBusquedaEnteros subArbol = new ArbolBinarioDeBusquedaEnteros();
         if (raiz != null && raiz.getDerecha() != null) {
             subArbol.raiz = raiz.getDerecha();
         }

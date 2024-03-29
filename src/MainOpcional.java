@@ -2,7 +2,7 @@ import es.uah.ed.arbol.ArbolBinarioDeBusqueda;
 import es.uah.ed.arbol.Nodo;
 import es.uah.listas.ListadoblementeEnlazada;
 
-public class Main {
+public class MainOpcional {
     public static void main(String[] args) {
         ArbolBinarioDeBusqueda arbol = new ArbolBinarioDeBusqueda();
         arbol.add(5);
