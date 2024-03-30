@@ -134,8 +134,9 @@ public class Mainejemplo {
         else{
             System.out.println("Las sumas dependen del recorrido");
         }
+        Object datoraiz = arbol2.getRaiz().getData();
 
-        if(arbol2.getSuma() == subArbolIzquierda2.getSuma()+subArbolDerecha2.getSuma()){
+        if(arbol2.getSuma() == subArbolIzquierda2.getSuma()+subArbolDerecha2.getSuma()+Integer.parseInt(datoraiz.toString())){
             System.out.println("Las sumas son iguales independientemente de los elementos del subarbol dcho o izq");
         }
         else{
