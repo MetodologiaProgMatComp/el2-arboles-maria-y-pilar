@@ -1,0 +1,58 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class ArbolBinarioDeBusqueda {
+    -raiz:Nodo
+    +ArbolBinariodeBusqueda()
+    -isVacio():boolean
+    -addrecursivo(raiz:Nodo, data:Object): Nodo
+    +add(data: Object):
+    +getSubArbolIzquierda():ArbolBinarioDeBusquedaEnteros
+    +getSubArbolDerecha():ArbolBinarioDeBusquedaEnteros
+    +getRaiz():Nodo
+    +getGrado():int
+    -getGradoRecursivo(nodo:Nodo):int
+    +getAltura():int
+    -getAlturaRecursivo(nodo:Nodo):int
+    +getListaDatosNivel(nivel:int):ListadoblementeEnlazada<Integer>
+    -getDatosNivelRecursivo(nodo:Nodo,nivel:int,datosnivel:ListadoblementeEnlazada<Integer>,nivelActual:int)
+    +isArbolHomogeneo():boolean
+    -isArbolHomogeneoRecursivo(nodo:Nodo,grado:int):boolean
+    +isArbolCompleto():boolean
+    +isArbolCasiCompleto():boolean
+    +getCamino(elemento:Integer):ListadoblementeEnlazada<Integer>
+    -obtenerCamino(nodo:Nodo, elemento:Integer, camino:ListadoblementeEnlazada<Integer>):boolean
+    +getListaPreOrden(): ListadoblementeEnlazada<Integer>
+    -ListaPreOrden(nodo:Nodo, lista:ListadoblementeEnlazada<Integer>)
+    +getListaPostOrden(): ListadoblementeEnlazada<Integer>
+    -ListaPostOrden(nodo:Nodo, lista:ListadoblementeEnlazada<Integer>)
+    +getListaOrdenCentral(): ListadoblementeEnlazada<Integer>
+    -ListaOrdenCentral(nodo:Nodo, lista:ListadoblementeEnlazada<Integer>)
+}
+
+class Nodo {
+    -izquierda:Nodo
+    -derecha:Nodo
+    -data:Object
+    +Nodo(data:Object)
+    +setData(data:Object)
+    +getData():Object
+    +getIzquierda():Nodo
+    +getDerecha():Nodo
+    +setIzquierda(izquierda:Nodo)
+    +setDerecha(derecha:Nodo)
+}
+
+class ArbolBinarioDeBusquedaEnteros{
+    +ArbolBinarioBusquedaEnteros()
+    +getSuma():int
+    -suma(nodo:Nodo):int
+}
+
+ArbolBinarioDeBusqueda --> Nodo:izquierda
+ArbolBinarioDeBusqueda --> Nodo:derecha
+Nodo --> Nodo:izquierda
+Nodo--> Nodo:derecha
+ArbolBinarioDeBusqueda<|--ArbolBinarioDeBusquedaEnteros
+
+@enduml

@@ -12,7 +12,7 @@ public class ArbolBinarioDeBusqueda {
         return raiz == null;
     }
 
-    public Nodo addrecursivo(Nodo raiz, Object data){
+    private Nodo addrecursivo(Nodo raiz, Object data){
         if (raiz == null) {
             Nodo n1 = new Nodo(data);
             raiz=n1;
@@ -133,18 +133,27 @@ public class ArbolBinarioDeBusqueda {
 
     public boolean isArbolCasiCompleto() {
         int altura = getAltura();
-        for (int i = 1; i < altura - 1; i++) {
-            if (getListaDatosNivel(i).getNumeroElementos() != Math.pow(2, i - 1)) {
-                return false;
+        return isArbolCasiCompletoRecursivo(this.raiz, 0, altura);
+    }
+
+    private boolean isArbolCasiCompletoRecursivo(Nodo nodo, int nivel, int altura) {
+        boolean casiCompleto = true;
+        if (nodo == null) {
+            return true;
+        }
+        if (nivel == altura) {
+            if (nodo.getIzquierda() == null && nodo.getDerecha() != null) {
+                casiCompleto = false;
+            }
+        } else {
+            if (nodo.getIzquierda() != null) {
+                casiCompleto = isArbolCasiCompletoRecursivo(nodo.getIzquierda(), nivel + 1, altura);
+            }
+            if (casiCompleto && nodo.getDerecha() != null) {
+                casiCompleto = isArbolCasiCompletoRecursivo(nodo.getDerecha(), nivel + 1, altura);
             }
         }
-        ListadoblementeEnlazada<Integer> datosUltimoNivel = getListaDatosNivel(altura);
-        int nodosUltimoNivel = datosUltimoNivel.getNumeroElementos();
-        int nodosesperados = 1;
-        while (nodosesperados < nodosUltimoNivel) {
-            nodosesperados *= 2;
-        }
-        return nodosesperados == nodosUltimoNivel;
+        return casiCompleto;
     }
     public ListadoblementeEnlazada<Integer> getCamino(Integer elemento) {
         ListadoblementeEnlazada<Integer> camino = new ListadoblementeEnlazada<>();
