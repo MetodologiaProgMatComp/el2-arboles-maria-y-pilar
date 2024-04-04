@@ -136,25 +136,17 @@ public class ArbolBinarioDeBusqueda {
         return isArbolCasiCompletoRecursivo(this.raiz, 0, altura);
     }
 
-    private boolean isArbolCasiCompletoRecursivo(Nodo nodo, int nivel, int altura) {
-        boolean casiCompleto = true;
-        if (nodo == null) {
+    private boolean isArbolCasiCompletoRecursivo(Nodo nodo, int index, int cantidadNodos) {
+        if (nodo == null)
             return true;
-        }
-        if (nivel == altura) {
-            if (nodo.getIzquierda() == null && nodo.getDerecha() != null) {
-                casiCompleto = false;
-            }
-        } else {
-            if (nodo.getIzquierda() != null) {
-                casiCompleto = isArbolCasiCompletoRecursivo(nodo.getIzquierda(), nivel + 1, altura);
-            }
-            if (casiCompleto && nodo.getDerecha() != null) {
-                casiCompleto = isArbolCasiCompletoRecursivo(nodo.getDerecha(), nivel + 1, altura);
-            }
-        }
-        return casiCompleto;
+
+        if (index >= cantidadNodos)
+            return false;
+
+        return (isArbolCasiCompletoRecursivo(nodo.getIzquierda(), 2 * index + 1, cantidadNodos) &&
+                isArbolCasiCompletoRecursivo(nodo.getDerecha(), 2 * index + 2, cantidadNodos));
     }
+
     public ListadoblementeEnlazada<Integer> getCamino(Integer elemento) {
         ListadoblementeEnlazada<Integer> camino = new ListadoblementeEnlazada<>();
         obtenerCamino(raiz, elemento, camino);
