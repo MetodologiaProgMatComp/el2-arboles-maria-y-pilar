@@ -7,6 +7,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ArbolBinarioDeBusquedaTest {
 
+<<<<<<< HEAD
+=======
+    @Test
+    void addrecursivo() {
+        ArbolBinarioDeBusqueda a1 = new ArbolBinarioDeBusqueda();
+        a1.add(5);
+        a1.add(4);
+        assertFalse(a1.isArbolHomogeneo(), "Fallo addrecursivo no coincide");
+    }
+>>>>>>> origin/master
 
     @Test
     void add() {
@@ -91,7 +101,11 @@ class ArbolBinarioDeBusquedaTest {
     @Test
     void isArbolCasiCompleto() {
         ArbolBinarioDeBusqueda a1 = new ArbolBinarioDeBusqueda();
+<<<<<<< HEAD
         assertTrue(a1.isArbolCasiCompleto(), "Fallo, completo no coincide");
+=======
+        assertFalse(a1.isArbolCasiCompleto(), "Fallo, completo no coincide");
+>>>>>>> origin/master
         a1.add(6);
         assertTrue(a1.isArbolCasiCompleto(), "Fallo, completo no coincide");
         a1.add(3);
@@ -99,6 +113,7 @@ class ArbolBinarioDeBusquedaTest {
         a1.add(2);
         a1.add(4);
         assertTrue(a1.isArbolCasiCompleto(), "Fallo, completo no coincide");
+<<<<<<< HEAD
         ArbolBinarioDeBusqueda a2 = new ArbolBinarioDeBusqueda();
         a2.add(10);
         a2.add(15);
@@ -106,6 +121,21 @@ class ArbolBinarioDeBusquedaTest {
         a2.add(8);
         a2.add(14);
         assertFalse(a2.isArbolCasiCompleto(), "Fallo, completo no coincide");
+=======
+        a1.add(1);
+        a1.add(5);
+        assertTrue(a1.isArbolCasiCompleto(), "Fallo, completo no coincide");
+        ArbolBinarioDeBusqueda a2 = new ArbolBinarioDeBusqueda();
+        a2.add(10);
+        a2.add(5);
+        a2.add(15);
+        a2.add(3);
+        a2.add(8);
+        a2.add(2);
+        a2.add(12);
+        a2.add(11);
+        assertTrue(a2.isArbolCasiCompleto(), "Fallo, completo no coincide");
+>>>>>>> origin/master
     }
 
     @Test
