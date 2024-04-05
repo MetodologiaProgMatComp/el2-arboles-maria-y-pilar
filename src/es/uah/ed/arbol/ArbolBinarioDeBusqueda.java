@@ -136,15 +136,15 @@ public class ArbolBinarioDeBusqueda {
         return isArbolCasiCompletoRecursivo(this.raiz, 0, altura);
     }
 
-    private boolean isArbolCasiCompletoRecursivo(Nodo nodo, int nivel, int cantidadNodos) {
+    private boolean isArbolCasiCompletoRecursivo(Nodo nodo, int nivel, int altura) {
         if (nodo == null)
             return true;
 
-        if (nivel >= cantidadNodos)
+        if (nivel >= altura)
             return false;
 
-        return (isArbolCasiCompletoRecursivo(nodo.getIzquierda(), 2 * nivel + 1, cantidadNodos) &&
-                isArbolCasiCompletoRecursivo(nodo.getDerecha(), 2 * nivel + 2, cantidadNodos));
+        return (isArbolCasiCompletoRecursivo(nodo.getIzquierda(), 2 * nivel + 1, altura) &&
+                isArbolCasiCompletoRecursivo(nodo.getDerecha(), 2 * nivel + 2, altura));
     }
 
     public ListadoblementeEnlazada<Integer> getCamino(Integer elemento) {

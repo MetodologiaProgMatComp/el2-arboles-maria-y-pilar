@@ -20,6 +20,7 @@ class ArbolBinarioDeBusqueda {
     -isArbolHomogeneoRecursivo(nodo:Nodo,grado:int):boolean
     +isArbolCompleto():boolean
     +isArbolCasiCompleto():boolean
+    -isArbolCasiCompletoRecursivo(nodo:Nodo, nivel:int, altura:int):boolean
     +getCamino(elemento:Integer):ListadoblementeEnlazada<Integer>
     -obtenerCamino(nodo:Nodo, elemento:Integer, camino:ListadoblementeEnlazada<Integer>):boolean
     +getListaPreOrden(): ListadoblementeEnlazada<Integer>
